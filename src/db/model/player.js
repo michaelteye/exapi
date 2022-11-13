@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------------------------------
 
 import Sequelize from 'sequelize';
-import database from '../index';
+import database from '../index.js';
 
 const Player = database.define('player', {
     id: {

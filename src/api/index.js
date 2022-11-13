@@ -5,14 +5,19 @@
 // /////////////////////////////////////////////////////////////////////////////
 
 import express from 'express';
+const routes = express.Router();
+// import player from "./player/index.js"
+// import team from "./team/index.js"
+// player.default(routes)
+// team.default(routes)
 
 const app = express();
 app.disable("x-powered-by");
 
-const routes = express.Router();
 
-require('./player').default(routes);
-require('./team').default(routes);
+
+// require('./player').default(routes);
+// require('./team').default(routes);
 
 app.use('/api', routes);
 
