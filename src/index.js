@@ -10,7 +10,7 @@ import database from './db/index.js';
 // const express = require('express')
 // const app = express()
 
-const port = 3000
+const port = 3003
 
 database.sync().then(
   () => {
@@ -20,4 +20,7 @@ database.sync().then(
   }
 )
 
+
+
 export default app;
+
