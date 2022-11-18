@@ -7,20 +7,9 @@
 
 export default (app) => {
 
-  app.post(
-    `/player`,
-    require('./create').default
-  );
-  app.put(`/player/:id`, require('./update').default);
-  app.delete(
-    `/player/:id`,
-    require('./delete').default
-  );
-
-  app.get('/player', require('./getList').default);
-  // app.get(
-  //   `/player`,
-  //   require('./getList').default
-  // );
- 
+  app.put(`/player/:id`, require("./update").default);
+  app.delete(`/player/:id`, require("./delete").default);
+  app.get(`/player`, require("./getList").default);
+  app.post(`/player`, require("./create").default);
 };
+
