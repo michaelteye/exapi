@@ -26,7 +26,8 @@ export default async (req, res) => {
       }
     );
 
-    let savedPlayer = await Player.findAll({
+    let savedPlayer = await Player.findOne({
+      where: { id: player.id },
       include: { model: PlayerSkill, as: "playerSkills" },
     });
 
