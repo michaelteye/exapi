@@ -9,7 +9,7 @@ const PlayerSkills = Player.hasMany(PlayerSkill, { as: "playerSkills" });
 
 export default async (req, res) => {
   try {
-    //Bernard remember to validate the request
+    //working with the post request
     const player = await Player.create(
       {
         name: req.body.name,
