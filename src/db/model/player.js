@@ -3,8 +3,10 @@
 // YOU SHOULD NOT CHANGE THE EXPORTED VALUE OF THIS FILE
 // ---------------------------------------------------------------------------------------------
 
+
 import Sequelize from "sequelize";
 import database from "../index";
+
 
 const Player = database.define(
   "player",

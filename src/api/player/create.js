@@ -1,6 +1,9 @@
 // ---------------------------------------------------------------------------------------------
 // YOU CAN FREELY MODIFY THE CODE BELOW IN ORDER TO COMPLETE THE TASK
 // ---------------------------------------------------------------------------------------------
+import Player from '../../db/model/player';
+import PlayerSkill from '../../db/model/playerSkill';
+
 
 import Player from "../../db/model/player";
 import PlayerSkill from "../../db/model/playerSkill";
@@ -8,6 +11,7 @@ import PlayerSkill from "../../db/model/playerSkill";
 const PlayerSkills = Player.hasMany(PlayerSkill, { as: "playerSkills" });
 
 export default async (req, res) => {
+
   try {
     //Bernard remember to validate the request
     const player = await Player.create(
@@ -36,3 +40,4 @@ export default async (req, res) => {
     res.status(500).send(error);
   }
 };
+

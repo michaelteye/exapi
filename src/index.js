@@ -5,10 +5,12 @@
 // WILL RESULT IN A TEST FAILURE
 // /////////////////////////////////////////////////////////////////////////////
 
-import app from './api';
-import database from './db';
+import app from './api/index.js';
+import database from './db/index.js';
+// const express = require('express')
+// const app = express()
 
-const port = 3000
+const port = 3003
 
 database.sync().then(
   () => {
@@ -18,4 +20,7 @@ database.sync().then(
   }
 )
 
+
+
 export default app;
+

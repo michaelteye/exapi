@@ -4,17 +4,20 @@
 // YOU CAN ADD YOUR OWN CODE TO THIS FILE AND USE THEM IN YOUR WORK.
 // /////////////////////////////////////////////////////////////////////////////
 
+
 import express from "express";
+
 
 const app = express();
 app.disable("x-powered-by");
 
-const routes = express.Router();
+
 
 require("./player").default(routes);
 require("./team").default(routes);
 
 app.use(express.json());
 app.use("/api", routes);
+
 
 export default app;
