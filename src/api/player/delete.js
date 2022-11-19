@@ -36,6 +36,7 @@ export default async (req, res) => {
       where: { playerId: player.id },
     });
 
+    //then  delete the player
     await Player.destroy({
       where: { id: req.params.id },
     });
