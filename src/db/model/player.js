@@ -1,3 +1,4 @@
+
 // ---------------------------------------------------------------------------------------------
 // YOU CAN MODIFY THE CODE BELOW IN ORDER TO COMPLETE THE TASK
 // YOU SHOULD NOT CHANGE THE EXPORTED VALUE OF THIS FILE
@@ -17,9 +18,30 @@ const Player = database.define(
     },
     name: {
       type: Sequelize.STRING(200),
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Player name is required",
+        },
+        len: {
+          args: [1, 200],
+          msg: "Player name's length must be between 1 and 200 characters",
+        },
+      },
     },
     position: {
       type: Sequelize.STRING(200),
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Player position is required",
+        },
+
+        isIn: {
+          args: [["defender", "midfielder", "forward"]],
+          msg: "Player position is invalid",
+        },
+      },
     },
   },
   {

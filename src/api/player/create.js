@@ -9,7 +9,6 @@ const PlayerSkills = Player.hasMany(PlayerSkill, { as: "playerSkills" });
 
 export default async (req, res) => {
   try {
-    //working with the post request
     const player = await Player.create(
       {
         name: req.body.name,
@@ -33,6 +32,6 @@ export default async (req, res) => {
 
     res.json(savedPlayer);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(400).json({ message: error.message });
   }
 };
