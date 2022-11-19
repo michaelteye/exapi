@@ -52,8 +52,6 @@ export default async (req, res) => {
 
     return res.json(updatedPlayer);
   } catch (error) {
-    return res
-      .status(500)
-      .json({ message: "Internal Server Error", error: error });
+    return res.status(400).json({ message: error.message });
   }
 };

@@ -17,9 +17,31 @@ const PlayerSkill = database.define(
     },
     skill: {
       type: Sequelize.STRING(200),
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Player Skill is required",
+        },
+        isAlpha: {
+          msg: "Skill must contain only alphabets",
+        },
+        isIn: {
+          args: [["defense", "attack", "speed", "strength", "stamina"]],
+          msg: "Player skill is invalid",
+        },
+      },
     },
     value: {
       type: Sequelize.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "skill value is required",
+        },
+        isNumeric: {
+          msg: "skill value must contain only numbers",
+        },
+      },
     },
   },
   {

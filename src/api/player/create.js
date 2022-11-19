@@ -33,6 +33,6 @@ export default async (req, res) => {
 
     res.json(savedPlayer);
   } catch (error) {
-    res.status(500).send(error);
+    return res.status(400).json({ message: error.message });
   }
 };
