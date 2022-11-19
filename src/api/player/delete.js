@@ -31,6 +31,10 @@ export default async (req, res) => {
     if (player == null) {
       return res.status(404).json({ message: "Player does not exist" });
     }
+    //first delete all the player assciations
+    await PlayerSkill.destroy({
+      where: { playerId: player.id },
+    });
 
     await Player.destroy({
       where: { id: req.params.id },
@@ -38,6 +42,6 @@ export default async (req, res) => {
 
     return res.json({ message: "Player Deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error", error: error });
   }
 };
