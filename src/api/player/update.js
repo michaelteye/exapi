@@ -7,8 +7,10 @@ import PlayerSkill from "../../db/model/playerSkill";
 import database from "../index";
 
 export default async (req, res) => {
+
   try {
     //Bernard remember to validate the request
+
 
     //get the player id
     const playerId = req.params.id;
