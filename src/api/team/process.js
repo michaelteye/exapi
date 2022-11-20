@@ -19,33 +19,20 @@ const teamName = Player.hasMany(PlayerSkill,{as: "playerSkils"})
 
 
 export default async (req, res) => {
-  try{
-    const team = await Player.create(
-      {
+  // try{
+      let allteam = await Player.findAll({
+        where: {
+          position: Math.max(req.body.position)
+        }
+      })
+      return res.status(200).json(allteam)
+    // }
+    // catch(err){
+    //   res.status(500).json({message:"Internal Server Error"})
 
-        position:req.body.position,
-        mainSkill: req.body.playerSkils,
-        numberOffPlayers:req.body.numberOffPlayers
-      },
-      {
-        include:[
-          {
-            association:teamName,
-            as: "playerSkils"
-          },
-        ],
-      }
-    );
-    let saveTeam = await Player.findAll({
-      where:{id: team.id},
-      include: { model: PlayerSkill, as: "playerSkils"}
-    });
-    res.json(saveTeam)
-  }
-  catch(error){
-    return res.status(400).json({ message: error.message });
+    // }
 
-      }
-  
-};
+   
 
+
+}

@@ -6,6 +6,7 @@
 
 import express from "express";
 
+
 const app = express();
 app.disable("x-powered-by");
 const routes = express.Router();
@@ -17,5 +18,6 @@ require("./team").default(routes);
 
 app.use(express.json());
 app.use("/api", routes);
+
 
 export default app;
